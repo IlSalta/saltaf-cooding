@@ -72,10 +72,10 @@ void loop () {
         digitalWrite(rosso_1; HIGH);                
         digitalWrite(verde_2; HIGH);
         //aspetto tempo verde2 per mettere giallo2
-        delay(temp_verde)
+        delay(temp_verde);
         //spengo verde2 e accendo giallo2
         digitalWrite(verde_2; LOW);
-        digitalWrite(giallo_2; HIGH)
+        digitalWrite(giallo_2; HIGH);
         // attendo il tempo per arrivare a rosso
         delay(temp_giallo);
         //spengo rosso 1 e metto verde 1 
@@ -90,7 +90,7 @@ void loop () {
         digitalWrite(verde_1; LOW);
         digitalWrite(giallo_1; HIGH);
         // attendo il tempo del giallo
-        delay(temp_giallo)
+        delay(temp_giallo);
         //spengo il giallo e faccio reincominciare il ciclo
         digitalWrite(temp_giallo; low);
     }
