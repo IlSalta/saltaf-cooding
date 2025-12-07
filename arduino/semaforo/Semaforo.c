@@ -1,6 +1,4 @@
-
-
-// definizione delle variabil
+ x // definizione delle variabil
 
     // luci semafori
         int rosso_1 = 3;              //luci semaforo 1
