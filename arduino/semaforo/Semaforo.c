@@ -1,22 +1,28 @@
  x // definizione delle variabil
 
     // luci semafori
-        int rosso_1 = 3;              //luci semaforo 1
-        int giallo_1 = 4;
-        int verde_1 = 5;
+       #define int rosso_1 = 3;              //luci semaforo 1
+       #define int giallo_1 = 4;
+       #define int verde_1 = 5;
 
-        int rosso_2 = 6;              //luci semaforo 2
-        int giallo_2 = 7;
-        int verde_2 = 8;
+       #define int rosso_2 = 6;              //luci semaforo 2
+       #define int giallo_2 = 7;
+       #define int verde_2 = 8;
 
     //tempi Semafori
         /*int temp_rosso = 5000;*/        // tempi attesa semaforo
-        int temp_giallo = 2000;
-        int temp_verde = 3000;
+        #define int temp_giallo = 2000;
+        #define int temp_verde = 3000;
 
 
 void setup () {
+    pinMode(3, OUTPUT);
+    pinMode(4, OUTPUT);
+    pinMode(5, OUTPUT);
 
+    pinMode(6, OUTPUT);
+    pinMode(7, OUTPUT);
+    pinMode(8, OUTPUT);
 }
 
 void loop () {
