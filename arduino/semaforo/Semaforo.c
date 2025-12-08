@@ -16,13 +16,13 @@
 
 
 void setup () {
-    pinMode(3, OUTPUT);
-    pinMode(4, OUTPUT);
-    pinMode(5, OUTPUT);
+    pinMode(rosso_1, OUTPUT);               // imposto i pin dei colori come output
+    pinMode(giallo_1, OUTPUT);
+    pinMode(verde_1, OUTPUT);
 
-    pinMode(6, OUTPUT);
-    pinMode(7, OUTPUT);
-    pinMode(8, OUTPUT);
+    pinMode(rosso_2, OUTPUT);               // imposto i pin dei colori come output
+    pinMode(giallo_2, OUTPUT);
+    pinMode(verde_2, OUTPUT);
 }
 
 void loop () {
