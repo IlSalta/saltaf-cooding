@@ -1,18 +1,18 @@
  x // definizione delle variabil
 
     // luci semafori
-       #define int rosso_1 = 3;              //luci semaforo 1
-       #define int giallo_1 = 4;
-       #define int verde_1 = 5;
+       #define rosso_1 = 3;              //luci semaforo 1
+       #define giallo_1 = 4;
+       #define verde_1 = 5;
 
-       #define int rosso_2 = 6;              //luci semaforo 2
-       #define int giallo_2 = 7;
-       #define int verde_2 = 8;
+       #define rosso_2 = 6;              //luci semaforo 2
+       #define giallo_2 = 7;
+       #define verde_2 = 8;
 
     //tempi Semafori
         /*int temp_rosso = 5000;*/        // tempi attesa semaforo
-        #define int temp_giallo = 2000;
-        #define int temp_verde = 3000;
+        int temp_giallo = 2000;
+        int temp_verde = 3000;
 
 
 void setup () {
