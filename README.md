@@ -4,3 +4,5 @@
 - arduino
     - semaforo
        - semaforo.c
+    - striscia_led
+        - programma_striscia_led
