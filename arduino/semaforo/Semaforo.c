@@ -1,4 +1,12 @@
- x // definizione delle variabil
+ 
+ /*programma per la gestione du un semaforo senza pulsanti per il passaggio pedonale
+ di Andrea Saltafosso
+ data creazione 05/12/2025
+ ultima modifica 09/12/2025
+ versione 1.0
+ */
+
+ // definizione delle variabil
 
     // luci semafori
        #define rosso_1 = 3;              //luci semaforo 1
