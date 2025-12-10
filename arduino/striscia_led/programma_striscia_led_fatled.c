@@ -17,7 +17,7 @@ CRGB leds[NUM_LEDS];
 // Variabili varie
 uint8_t puntatore_flusso = 0;                             // Puntatore per selezionare il LED del flusso di colori che cambiano
 uint8_t selettore_tipo_colore_flusso = 0;                 // Puntatore per il tipo di colore nel flusso di colori che cambiano
-const uint8_t tipi_di_colore_flusso = 3;                  // Numero di colori diversi da usare nei flussi
+const uint8_t tipi_di_colore_flusso = 5;                  // Numero di colori diversi da usare nei flussi
 uint8_t temporizzatore_lampeggio = 0;                     // Contatore per temporizzazione dei lampeggi
 CRGB colore_base = CRGB(255, 0, 20);                      // Colore base nell'effetto dei lampeggi
 CRGB colore_lampeggi = CRGB(0, 255, 50);                  // Colore delle parti lampeggianti nell'effetto dei lampeggi
@@ -46,13 +46,14 @@ void lampeggio_segmenti();
 
 // List of patterns to cycle through.  Each is defined as a separate function below.
 typedef void (*SimplePatternList[])();
-//SimplePatternList gPatterns = { flusso_colore, lampeggio_segmenti, juggle };
-SimplePatternList gPatterns = { lampeggio_segmenti };
+SimplePatternList gPatterns = { flusso_colore, lampeggio_segmenti, juggle };
+//SimplePatternList gPatterns = { lampeggio_segmenti };
+//SimplePatternList gPatterns = { flusso_colore };
 
 uint8_t gCurrentPatternNumber = 0; // Index number of which pattern is current
 
 // *************************************************************************************
-void loop() {
+void loop() {                                                                            
   // put your main code here, to run repeatedly:
 
   // Call the current pattern function once, updating the 'leds' array
@@ -78,30 +79,39 @@ void loop() {
 
              // creo una variabile intera per cambiare il colore della palette
   EVERY_N_SECONDS( 3 ) {                                       // ogni 3 secondi 
-    if (change_pal_seg > 5) {                                  // se il numero della  variabile change_pal_seg è maggiore di 5
+    if (change_pal_seg > 6) {                                  // se il numero della  variabile change_pal_seg è maggiore di 5
       change_pal_seg = 1;                                      // imposta la variabile a 1                                        
     } else {
-      if (change_pal_seg == 1){                                //MODIFICARE I COLORI IN MANIERA DA ESSERE VISIBILI SULLA STRISCIA
-        colore_base = CRGB(255, 231, 76);
-        colore_lampeggi = CRGB(0, 89, 100);
+      if (change_pal_seg == 1){                                // Palette n°1
+        colore_base = CRGB(0, 220, 200);
+        colore_lampeggi = CRGB(140, 0, 60);
         change_pal_seg ++;
-      } else if (change_pal_seg == 2) {
-        colore_base = CRGB(211, 97, 53);
-        colore_lampeggi = CRGB(60, 69, 41);
+
+      } else if (change_pal_seg == 2) {                       // Palette n°2
+        colore_base = CRGB(255, 0, 170);
+        colore_lampeggi = CRGB(0, 90, 50);
         change_pal_seg ++;
-      } else if (change_pal_seg == 3) {
-        colore_base = CRGB(94, 36, 37);
-        colore_lampeggi = CRGB(6, 44, 45);
+
+      } else if (change_pal_seg == 3) {                       // Palette n° 3                     
+        colore_base = CRGB(255, 125, 20);
+        colore_lampeggi = CRGB(0, 80, 60);
         change_pal_seg ++;
-      } else if (change_pal_seg == 4) {
-        colore_base = CRGB(192, 87, 70);
-        colore_lampeggi = CRGB(68, 78, 60);
+
+      } else if (change_pal_seg == 4) {                       // Palette n° 4
+        colore_base = CRGB(40, 70, 110);
+        colore_lampeggi = CRGB(200, 150, 20);
         change_pal_seg ++;
-      } else if (change_pal_seg == 5) {
-        colore_base = CRGB(82, 81, 93);
-        colore_lampeggi = CRGB(42, 56, 97);
+
+      } else if (change_pal_seg == 5) {                       // Palette n° 5
+        colore_base = CRGB(255, 100, 180);
+        colore_lampeggi = CRGB(40, 70, 110);
         change_pal_seg ++;
-      } 
+
+      } else if (change_pal_seg == 6) {                       // Palette n° 6
+        colore_base = CRGB(70, 255, 120);
+        colore_lampeggi = CRGB(170, 60, 255);
+        change_pal_seg ++;
+      }
        
     }
 
@@ -121,7 +131,7 @@ void nextPattern()
 void flusso_colore()
 {
   // Controlla se la variabile "puntatore_flusso" vale 0
-  if (puntatore_flusso == 0) {
+  if (puntatore_flusso == 100) {
     // Il puntatore del led su cui lavorare è a 0
     // Passa al colore successivo incrementando "selettore_tipo_colore_flusso"
     selettore_tipo_colore_flusso++;
@@ -134,12 +144,34 @@ void flusso_colore()
     if (selettore_tipo_colore_flusso == 0) {
       // Fucsia
       colore_flusso = CRGB(255, 0, 30);
+      
     } else if (selettore_tipo_colore_flusso == 1) {
       // Blu
       colore_flusso = CRGB(0, 0, 255);
+
     } else if (selettore_tipo_colore_flusso == 2) {
       // Giallo
-      colore_flusso = CRGB(255, 120, 0);
+      colore_flusso = CRGB(255, 255, 0);
+      //colore_flusso = CRGB(255, 120, 0);
+      
+    }else if (selettore_tipo_colore_flusso == 3) {
+      // Verde
+      colore_flusso = CRGB(102, 255, 0);
+      //colore_flusso = CRGB(120, 255, 0);                       //verde lime neon
+      //colore_flusso = CRGB(0, 255, 160);                       //verde menta elettrico
+      //colore_flusso = CRGB(0, 220, 100);                       //verde smeraldo acceso
+
+    }else if (selettore_tipo_colore_flusso == 4) {               
+      // Rosso
+      colore_flusso = CRGB(255, 0, 0);                         // rosso vivo
+      //colore_flusso = CRGB(255, 60, 20);                       // rosso fuoco
+      //colore_flusso = CRGB(180, 0, 40);                        // rosso cremesi
+
+    }else if (selettore_tipo_colore_flusso == 5) {               
+      // lilla
+      colore_flusso = CRGB(200, 100, 255);                     //lilla neon
+      //colore_flusso = CRGB(180, 80, 220);                      //lilla elettrico
+      //colore_flusso = CRGB(150, 120, 255);                     //lavanda accesa
     }
     // FINIRE CON ALTRI ELSE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   }
